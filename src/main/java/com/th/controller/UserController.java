@@ -22,8 +22,8 @@ public class UserController {
 @GetMapping("")
 public String welcome(Model m)
 {
-	List<User> users=userService.findAll();
-	User user=new User();
+	List<User> users=userService.findAll(); // liste 
+	User user=new User(); // formulaire User unique
 	m.addAttribute("user", user);
 	m.addAttribute("users", users);
 return "index.html";	
