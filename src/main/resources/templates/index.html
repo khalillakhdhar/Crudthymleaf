@@ -52,9 +52,9 @@
 <th>id</th>
 <th>nom</th>
 <th>prenom</th>
-<th>Age</th>
+<th><a href="age">Age</a></th>
 <th>adresse</th>
-
+<th>Action</th>
 </tr></thead>
 <tbody>
 <tr th:each="us: ${users} ">
@@ -63,6 +63,7 @@
 <td th:utext="${us.prenom}"></td>
 <td th:utext="${us.age}"></td>
 <td th:utext="${us.adresse}"></td>
+<td><a th:href="@{/delete/{id}(id=${us.id})}" class="btn btn-danger">supprimer</a> </td>
 </tr>
 </tbody>
 
