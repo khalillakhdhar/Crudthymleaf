@@ -3,6 +3,8 @@ package com.th.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.th.model.User;
@@ -19,9 +21,9 @@ UserRepository userRepository;
 	}
 
 	@Override
-	public List<User> findAll() {
+	public Page<User> findAll(Pageable pageable) {
 		// TODO Auto-generated method stub
-		return userRepository.findAll();
+		return userRepository.findAll(pageable);
 	}
 
 	@Override

@@ -3,6 +3,8 @@ package com.th.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,9 +22,9 @@ public class UserController {
 	@Autowired
 	UserService userService;
 @GetMapping("")
-public String welcome(Model m)
+public String welcome(Model m, Pageable pageable)
 {
-	List<User> users=userService.findAll(); // liste 
+	Page	<User> users=userService.findAll(pageable); // liste 
 	User user=new User(); // formulaire User unique
 	m.addAttribute("user", user);
 	m.addAttribute("users", users);
